@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  000102c8  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00000068  00000000  00000000  000102f8  2**0
+ 12 .debug_info   000000a7  00000000  00000000  000102f8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 0000004e  00000000  00000000  00010360  2**0
+ 13 .debug_abbrev 00000059  00000000  00000000  0001039f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000048  00000000  00000000  000103b0  2**3
+ 14 .debug_aranges 00000048  00000000  00000000  000103f8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000030  00000000  00000000  000103f8  2**3
+ 15 .debug_ranges 00000030  00000000  00000000  00010440  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00000a81  00000000  00000000  00010428  2**0
+ 16 .debug_macro  00000f81  00000000  00000000  00010470  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   000000fb  00000000  00000000  00010ea9  2**0
+ 17 .debug_line   0000046c  00000000  00000000  000113f1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    00002d2c  00000000  00000000  00010fa4  2**0
+ 18 .debug_str    00003d7a  00000000  00000000  0001185d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00013cd0  2**0
+ 19 .comment      0000007b  00000000  00000000  000155d7  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000054  00000000  00000000  00013d4c  2**2
+ 20 .debug_frame  00000054  00000000  00000000  00015654  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -85,8 +85,10 @@ int main(void)
 {
  8000204:	b480      	push	{r7}
  8000206:	af00      	add	r7, sp, #0
-    /* Loop forever */
-	for(;;);
+
+
+	/* Loop forever */
+	while(1)
  8000208:	e7fe      	b.n	8000208 <main+0x4>
 	...
 

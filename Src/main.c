@@ -9,6 +9,11 @@
 
 int main(void)
 {
-    /* Loop forever */
-	for(;;);
+
+
+	/* Loop forever */
+	while(1)
+	{
+
+	}
 }
