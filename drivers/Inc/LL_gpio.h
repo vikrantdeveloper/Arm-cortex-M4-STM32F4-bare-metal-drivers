@@ -9,7 +9,9 @@
 #define INC_LL_GPIO_H_
 #include "stm32f4xx.h"
 
-/*!<GPIO registers>*/
+/*
+ * GPIO registers
+ */
 typedef struct
 {
 	vo  uint32_t MODER;                             /*!< configure the mode address offset - 0x00>*/
@@ -23,9 +25,17 @@ typedef struct
 	vo  uint32_t AFRL;								/*!< configure the alternative function register address offset - 0x20>*/
 	vo  uint32_t AFRH;								/*!< configure the alternative function register address offset - 0x24*/
 }GPIO_regdef_t;
-
+/*
+ * GPIO's base address
+ */
 #define GPIOA_ADDR                  (GPIO_regdef_t *)LL_GPIOA_BASE_ADDR
-
+#define GPIOB_ADDR                  (GPIO_regdef_t *)LL_GPIOB_BASE_ADDR
+#define GPIOC_ADDR					(GPIO_regdef_t *)LL_GPIOC_BASE_ADDR
+#define GPIOD_ADDR					(GPIO_regdef_t *)LL_GPIOD_BASE_ADDR
+#define GPIOE_ADDR					(GPIO_regdef_t *)LL_GPIOE_BASE_ADDR
+#define GPIOF_ADDR					(GPIO_regdef_t *)LL_GPIOF_BASE_ADDR
+#define GPIOG_ADDR					(GPIO_regdef_t *)LL_GPIOG_BASE_ADDR
+#define GPIOH_ADDR					(GPIO_regdef_t *)LL_GPIOH_BASE_ADDR
 
 /*
  * GPIO Pin configuration structure
@@ -45,29 +55,39 @@ typedef struct
  */
 typedef struct
 {
-	GPIO_regdef_t *pGPIOaddr;    				   /*!<base address of GPIO peripheral>*/
+	GPIO_regdef_t *pGPIOaddrx;    				   /*!<base address of GPIO peripheral>*/
 	GPIO_pinconfig_t GPIOpinconfig;
 
 }GPIO_handle_t;
 
 /*
+ * enable or disable GPIO clock
+ */
+typedef enum
+{
+	SET = 0,
+	RESET = 1
+}gpio_enum;
+
+/*
  * GPIO driver function API
  */
 // Initialisation GPIO API
-extern void GPIO_init(void);
-extern void GPIO_deinit(void);
+void GPIO_init(GPIO_handle_t *pGPIOx);
+void GPIO_deinit(GPIO_regdef_t *pGPIOx);    // only one register can reset the value in GPIO RTS
 
 // Clock Configuration API
-extern void GPIO_clock_control(void);
+void GPIO_clock_control(GPIO_regdef_t *pGPIOx, gpio_enum status);
 
 // GPIO read & write pin ,port
-extern void GPIO_read_input_pin(void);
-extern void GPIO_read_input_port(void);
-extern void GPIO_write_output_pin(void);
-extern void GPIO_write_output_port(void);
+uint8_t GPIO_read_input_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber);
+uint16_t GPIO_read_input_port(GPIO_regdef_t *pGPIOhandle);
+uint8_t GPIO_write_output_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber);
+uint16_t GPIO_write_output_port(GPIO_regdef_t *pGPIOhandle, uint16_t portvalue);
+void GPIO_toggle_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber);
 
 // Interrupt IRQ No. & Handling
-extern void GPIO_IRQ_Config(void);
-extern void GPIO_IRQ_Handling(void);
+void GPIO_IRQ_Config(uint8_t IRQNumber, uint8_t IRQPriority , gpio_enum update);
+void GPIO_IRQ_Handling(uint8_t pinnumber);
 
 #endif /* INC_LL_GPIO_H_ */

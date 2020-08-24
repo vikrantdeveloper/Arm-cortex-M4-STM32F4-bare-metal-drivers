@@ -11,8 +11,12 @@
 
 // Req. Definition
 #include <stdint.h>
-
 #define vo volatile
+typedef enum
+{
+	ENABLE = 0,
+	DISABLE = 1
+}clk_enum;
 
 /*
  * base address for the RCC
