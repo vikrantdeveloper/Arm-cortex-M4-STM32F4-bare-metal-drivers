@@ -49,8 +49,29 @@ extern RCC_regdef_t *pRCC;
  /*
   * clock enable or disable macros - RCC
   */
- #define GPIOA_PCLK_EN()  (pRCC->AHB1ENR |= (1<<0));   // enable clock for GPIOA peripheral
- #define GPIOA_PCLK_DI()  (pRCC->AHB1ENR &= ~(1<<0));  // disable clock for GPIOA peripheral
+#define GPIOA_PCLK_EN()  (pRCC->AHB1ENR |= (1<<0));   // enable clock for GPIOA peripheral
+#define GPIOA_PCLK_DI()  (pRCC->AHB1ENR &= ~(1<<0));  // disable clock for GPIOA peripheral
+
+#define GPIOB_PCLK_EN()	 (pRCC->AHB1ENR |= (1<<1));   // enable clock for GPIOB peripheral
+#define GPIOB_PCLK_DI()	 (pRCC->AHB1ENR &= ~(1<<1));  // disable clock for GPIOB peripheral
+
+#define GPIOC_PCLK_EN()	 (pRCC->AHB1ENR |= (1<<2));   // enable clock for GPIOC peripheral
+#define GPIOC_PCLK_DI()  (pRCC->AHB1ENR &= ~(1<<2));  // disable clock for GPIOC peripheral
+
+#define GPIOD_PCLK_EN()	 (pRCC->AHB1ENR |= (1<<3));   // enable clock for GPIOC peripheral
+#define GPIOD_PCLK_DI()  (pRCC->AHB1ENR &= ~(1<<3));  // disable clock for GPIOC peripheral
+
+#define GPIOE_PCLK_DI()  (pRCC->AHB1ENR &= ~(1<<4));  // disable clock for GPIOE peripheral
+#define GPIOE_PCLK_EN()	 (pRCC->AHB1ENR |= (1<<4));   // enable clock for GPIOE peripheral
+
+#define GPIOF_PCLK_DI()  (pRCC->AHB1ENR &= ~(1<<5));  // disable clock for GPIOF peripheral
+#define GPIOF_PCLK_EN()	 (pRCC->AHB1ENR |= (1<<5));   // enable clock for GPIOF peripheral
+
+#define GPIOG_PCLK_DI()  (pRCC->AHB1ENR &= ~(1<<6));  // disable clock for GPIOG peripheral
+#define GPIOG_PCLK_EN()	 (pRCC->AHB1ENR |= (1<<6));   // enable clock for GPIOG peripheral
+
+#define GPIOH_PCLK_DI()  (pRCC->AHB1ENR &= ~(1<<7));  // disable clock for GPIOH peripheral
+#define GPIOH_PCLK_EN()	 (pRCC->AHB1ENR |= (1<<7));   // enable clock for GPIOH peripheral
 
 
 #endif /* INC_LL_RCC_H_ */

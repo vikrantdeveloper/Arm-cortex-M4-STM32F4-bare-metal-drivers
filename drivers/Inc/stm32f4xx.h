@@ -16,7 +16,7 @@ typedef enum
 {
 	ENABLE = 0,
 	DISABLE = 1
-}clk_enum;
+}en_enum;
 
 /*
  * base address for the RCC

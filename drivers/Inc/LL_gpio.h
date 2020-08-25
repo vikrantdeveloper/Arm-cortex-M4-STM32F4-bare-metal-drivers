@@ -65,8 +65,8 @@ typedef struct
  */
 typedef enum
 {
-	SET = 0,
-	RESET = 1
+	CLK_SET = 0,
+	CLK_RESET = 1
 }gpio_enum;
 
 /*
@@ -76,7 +76,16 @@ typedef enum
 void GPIO_init(GPIO_handle_t *pGPIOx);
 void GPIO_deinit(GPIO_regdef_t *pGPIOx);    // only one register can reset the value in GPIO RTS
 
-// Clock Configuration API
+
+/*
+ * @brief :- Clock Configuration API for GPIO
+ *
+ * @param[in]
+ * @param[in]
+ *
+ * @note
+ */
+
 void GPIO_clock_control(GPIO_regdef_t *pGPIOx, gpio_enum status);
 
 // GPIO read & write pin ,port

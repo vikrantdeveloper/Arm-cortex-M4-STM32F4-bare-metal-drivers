@@ -13,16 +13,44 @@ void GPIO_init(GPIO_handle_t *pGPIOx)
 }
 void GPIO_clock_control(GPIO_regdef_t *pGPIOx, gpio_enum status)
 {
-	if(status == ENABLE)
+	if(status == CLK_SET)
 	{
 		if(pGPIOx == GPIOA_ADDR)
 			GPIOA_PCLK_EN();
+		if(pGPIOx == GPIOB_ADDR)
+			GPIOB_PCLK_EN();
+		if(pGPIOx == GPIOC_ADDR)
+			GPIOC_PCLK_EN();
+		if(pGPIOx == GPIOD_ADDR)
+			GPIOD_PCLK_EN();
+		if(pGPIOx == GPIOE_ADDR)
+			GPIOE_PCLK_EN();
+		if(pGPIOx == GPIOF_ADDR)
+			GPIOF_PCLK_EN();
+		if(pGPIOx == GPIOG_ADDR)
+			GPIOG_PCLK_EN();
+		if(pGPIOx == GPIOH_ADDR)
+			GPIOH_PCLK_EN();
 
 	}
-	else
+	else if(status == CLK_RESET)
 	{
 		if(pGPIOx == GPIOA_ADDR)
 			GPIOA_PCLK_DI();
+		if(pGPIOx == GPIOB_ADDR)
+			GPIOB_PCLK_DI();
+		if(pGPIOx == GPIOC_ADDR)
+			GPIOC_PCLK_DI();
+		if(pGPIOx == GPIOD_ADDR)
+			GPIOD_PCLK_DI();
+		if(pGPIOx == GPIOE_ADDR)
+			GPIOE_PCLK_DI();
+		if(pGPIOx == GPIOF_ADDR)
+			GPIOF_PCLK_DI();
+		if(pGPIOx == GPIOG_ADDR)
+			GPIOG_PCLK_DI();
+		if(pGPIOx == GPIOH_ADDR)
+			GPIOH_PCLK_DI();
 	}
 }
 uint8_t GPIO_read_input_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber)
