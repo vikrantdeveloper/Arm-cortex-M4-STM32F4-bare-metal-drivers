@@ -1,7 +1,8 @@
-LL_gpio.c:10:6:GPIO_init	16	static
-LL_gpio.c:14:6:GPIO_clock_control	16	static
-LL_gpio.c:56:9:GPIO_read_input_pin	16	static
-LL_gpio.c:60:10:GPIO_read_input_port	16	static
-LL_gpio.c:64:6:GPIO_toggle_pin	16	static
-LL_gpio.c:68:9:GPIO_write_output_pin	16	static
-LL_gpio.c:72:10:GPIO_write_output_port	16	static
+LL_gpio.c:10:6:GPIO_init	24	static
+LL_gpio.c:102:6:GPIO_clock_control	16	static
+LL_gpio.c:144:6:GPIO_deinit	16	static
+LL_gpio.c:163:9:GPIO_read_input_pin	24	static
+LL_gpio.c:169:10:GPIO_read_input_port	24	static
+LL_gpio.c:174:6:GPIO_toggle_pin	24	static
+LL_gpio.c:184:6:GPIO_write_output_pin	24	static
+LL_gpio.c:197:6:GPIO_write_output_port	16	static

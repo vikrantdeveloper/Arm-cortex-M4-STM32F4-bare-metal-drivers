@@ -232,24 +232,26 @@ Discarded input sections
  .data          0x0000000000000000        0x0 drivers/src/LL_gpio.o
  .bss           0x0000000000000000        0x0 drivers/src/LL_gpio.o
  .text.GPIO_init
-                0x0000000000000000       0x14 drivers/src/LL_gpio.o
+                0x0000000000000000      0x2e0 drivers/src/LL_gpio.o
  .text.GPIO_clock_control
                 0x0000000000000000      0x1cc drivers/src/LL_gpio.o
+ .text.GPIO_deinit
+                0x0000000000000000      0x178 drivers/src/LL_gpio.o
  .text.GPIO_read_input_pin
-                0x0000000000000000       0x1a drivers/src/LL_gpio.o
+                0x0000000000000000       0x2c drivers/src/LL_gpio.o
  .text.GPIO_read_input_port
-                0x0000000000000000       0x16 drivers/src/LL_gpio.o
+                0x0000000000000000       0x1c drivers/src/LL_gpio.o
  .text.GPIO_toggle_pin
-                0x0000000000000000       0x18 drivers/src/LL_gpio.o
+                0x0000000000000000       0x52 drivers/src/LL_gpio.o
  .text.GPIO_write_output_pin
-                0x0000000000000000       0x1a drivers/src/LL_gpio.o
- .text.GPIO_write_output_port
-                0x0000000000000000       0x1a drivers/src/LL_gpio.o
- .debug_info    0x0000000000000000      0x4ca drivers/src/LL_gpio.o
- .debug_abbrev  0x0000000000000000       0xf7 drivers/src/LL_gpio.o
- .debug_aranges
                 0x0000000000000000       0x50 drivers/src/LL_gpio.o
- .debug_ranges  0x0000000000000000       0x40 drivers/src/LL_gpio.o
+ .text.GPIO_write_output_port
+                0x0000000000000000       0x1e drivers/src/LL_gpio.o
+ .debug_info    0x0000000000000000      0x623 drivers/src/LL_gpio.o
+ .debug_abbrev  0x0000000000000000      0x11a drivers/src/LL_gpio.o
+ .debug_aranges
+                0x0000000000000000       0x58 drivers/src/LL_gpio.o
+ .debug_ranges  0x0000000000000000       0x48 drivers/src/LL_gpio.o
  .debug_macro   0x0000000000000000       0x8e drivers/src/LL_gpio.o
  .debug_macro   0x0000000000000000      0xa66 drivers/src/LL_gpio.o
  .debug_macro   0x0000000000000000       0x22 drivers/src/LL_gpio.o
@@ -259,12 +261,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x6a drivers/src/LL_gpio.o
  .debug_macro   0x0000000000000000      0x1df drivers/src/LL_gpio.o
  .debug_macro   0x0000000000000000       0x76 drivers/src/LL_gpio.o
- .debug_macro   0x0000000000000000       0x64 drivers/src/LL_gpio.o
- .debug_macro   0x0000000000000000       0x3a drivers/src/LL_gpio.o
- .debug_line    0x0000000000000000      0x482 drivers/src/LL_gpio.o
- .debug_str     0x0000000000000000     0x45d0 drivers/src/LL_gpio.o
+ .debug_macro   0x0000000000000000       0x94 drivers/src/LL_gpio.o
+ .debug_macro   0x0000000000000000       0xa0 drivers/src/LL_gpio.o
+ .debug_line    0x0000000000000000      0x4fb drivers/src/LL_gpio.o
+ .debug_str     0x0000000000000000     0x4a8d drivers/src/LL_gpio.o
  .comment       0x0000000000000000       0x7c drivers/src/LL_gpio.o
- .debug_frame   0x0000000000000000      0x128 drivers/src/LL_gpio.o
+ .debug_frame   0x0000000000000000      0x150 drivers/src/LL_gpio.o
  .ARM.attributes
                 0x0000000000000000       0x39 drivers/src/LL_gpio.o
  .group         0x0000000000000000        0xc drivers/src/LL_rcc.o
@@ -293,9 +295,9 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x6a drivers/src/LL_rcc.o
  .debug_macro   0x0000000000000000      0x1df drivers/src/LL_rcc.o
  .debug_macro   0x0000000000000000       0x76 drivers/src/LL_rcc.o
- .debug_macro   0x0000000000000000       0x64 drivers/src/LL_rcc.o
+ .debug_macro   0x0000000000000000       0x94 drivers/src/LL_rcc.o
  .debug_line    0x0000000000000000      0x3da drivers/src/LL_rcc.o
- .debug_str     0x0000000000000000     0x4281 drivers/src/LL_rcc.o
+ .debug_str     0x0000000000000000     0x4501 drivers/src/LL_rcc.o
  .comment       0x0000000000000000       0x7c drivers/src/LL_rcc.o
  .ARM.attributes
                 0x0000000000000000       0x39 drivers/src/LL_rcc.o

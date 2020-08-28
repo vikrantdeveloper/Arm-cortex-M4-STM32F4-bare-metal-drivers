@@ -73,5 +73,15 @@ extern RCC_regdef_t *pRCC;
 #define GPIOH_PCLK_DI()  (pRCC->AHB1ENR &= ~(1<<7));  // disable clock for GPIOH peripheral
 #define GPIOH_PCLK_EN()	 (pRCC->AHB1ENR |= (1<<7));   // enable clock for GPIOH peripheral
 
-
+/*
+ * GPIO Reset Macros
+ */
+#define GPIOA_RST()		 do{(pRCC->AHB1RSTR |= (1<<0));(pRCC->AHB1RSTR &= ~(1<<0));}while(0)   // reset the GPIOA peripheral bits
+#define GPIOB_RST()		 do{(pRCC->AHB1RSTR |= (1<<1));(pRCC->AHB1RSTR &= ~(1<<1));}while(0)   // reset the GPIOB peripheral bits
+#define GPIOC_RST()		 do{(pRCC->AHB1RSTR |= (1<<2));(pRCC->AHB1RSTR &= ~(1<<2));}while(0)   // reset the GPIOC peripheral bits
+#define GPIOD_RST()		 do{(pRCC->AHB1RSTR |= (1<<3));(pRCC->AHB1RSTR &= ~(1<<3));}while(0)   // reset the GPIOD peripheral bits
+#define GPIOE_RST()		 do{(pRCC->AHB1RSTR |= (1<<4));(pRCC->AHB1RSTR &= ~(1<<4));}while(0)   // reset the GPIOE peripheral bits
+#define GPIOF_RST()		 do{(pRCC->AHB1RSTR |= (1<<5));(pRCC->AHB1RSTR &= ~(1<<5));}while(0)   //  reset the GPIOF  peripheral bits
+#define GPIOG_RST()		 do{(pRCC->AHB1RSTR |= (1<<6));(pRCC->AHB1RSTR &= ~(1<<6));}while(0)   //  reset the GPIOG  peripheral bits
+#define GPIOH_RST()		 do{(pRCC->AHB1RSTR |= (1<<6));(pRCC->AHB1RSTR &= ~(1<<6));}while(0)   //  reset the GPIOH  peripheral bits
 #endif /* INC_LL_RCC_H_ */
