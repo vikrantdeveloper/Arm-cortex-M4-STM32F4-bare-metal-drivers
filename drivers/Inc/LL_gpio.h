@@ -1,6 +1,5 @@
-/* MIT License
- * LL_gpio.h
- *
+/* 	MIT License
+ * 	LL_gpio.h
  *  Created on: 18 Aug 2020
  *  Author: Vikrant Thakur(vikrantthakur97@gmail.com)
  */
@@ -44,7 +43,7 @@ typedef struct
 {
 	uint8_t GPIO_pinnumber;                        /*!<GPIO pinnumber @GPIO pin number>*/
 	uint8_t GPIO_mode;                             /*!<GPIO modepin @GPIO modes>*/
-	uint8_t GPIO_pinspeed;						   /*!<GPIO pinspeed @GPIO Output Speed>*/
+	uint8_t GPIO_pinspeed;						   /*!<GPIO pinspeed @GPIO Output Speed> , configure the slew rate of the GPIO*/
 	uint8_t GPIO_pinoptype;						   /*!<GPIO outputvalue @GPIO Output Type>*/
 	uint8_t GPIO_pinpupdcontrol;				   /*!<GPIO pupdcontrol @GPIO Push-pull resistance>*/
 	uint8_t GPIO_pinaltfunction;				   /*!<GPI0 pinaltfunction >*/
@@ -73,11 +72,11 @@ typedef enum
  */
 typedef enum
 {
-	GPIO_PIN_1 = 0,
-	GPIO_PIN_2 = 1,
-	GPIO_PIN_3 = 2,
-	GPIO_PIN_4 = 3,
-	GPIO_PIN_5 = 4,
+	GPIO_PIN_1 = 1,
+	GPIO_PIN_2 = 2,
+	GPIO_PIN_3 = 3,
+	GPIO_PIN_4 = 4,
+	GPIO_PIN_5 = 5,
 	GPIO_PIN_6 = 6,
 	GPIO_PIN_7 = 7,
 	GPIO_PIN_8 = 8,
@@ -103,7 +102,7 @@ typedef enum
  * GPIO Output Type
  */
 #define GPIO_OP_PP    0                // PUSH PULL OUTPUT //
-#define GPIO_OP_DR      1			   // OPEN DRAIN //
+#define GPIO_OP_DR    1			   	   // OPEN DRAIN //
 /*
  * GPIO Output Speed
  */
@@ -172,19 +171,64 @@ void GPIO_deinit(GPIO_regdef_t *pGPIOx);
  */
 void GPIO_clock_control(GPIO_regdef_t *pGPIOx, gpio_enum status);
 /*
- * @brief :- 	 read the pin for given GPIO peripheral
+ * @brief :- 	 read the pin for given GPIO peripheral pin
  *
  * @param[in] :- pointer to GPIOs register definition
  * @param[in] :- pin number
  *
- * @note :-      right shift the pin value to 0 pin location and then & with 0x01 to obtain 1 or 0
- * @
+ * @note :-      right shift the pin value to 0 pin location and then & with 0x01 to obtain 1 or 0 read logic
  */
 uint8_t GPIO_read_input_pin(GPIO_regdef_t *pGPIOreadhandle ,uint8_t pinnumber);
+/*
+ * @brief :- 	 read the port for given GPIO peripheral
+ *
+ * @param[in] :- pointer to GPIOs register definition
+ *
+ * @note :-      None
+ */
 uint16_t GPIO_read_input_port(GPIO_regdef_t *pGPIOreadhandle);
+/*
+ * @brief :- 	 write the pin value for given GPIO peripheral pin
+ *
+ * @param[in] :- pointer to GPIOs register handle
+ * @param[in] :- pin number of the port
+ * @param[in] :- Write value to pin
+ *
+ * @note :-      None
+ */
 void GPIO_write_output_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber , gpio_write_pin value);
+/*
+ * @brief :- 	 write the port for given GPIO peripheral
+ *
+ * @param[in] :- pointer to GPIOs register handle
+ * @param[in] :- port value of the port
+ *
+ * @note :-      None
+ */
 void GPIO_write_output_port(GPIO_regdef_t *pGPIOhandle, uint16_t portvalue);
+/*
+ * @brief :- 	 toggle the pin for given GPIO peripheral
+ *
+ * @param[in] :- pointer to GPIOs register handle
+ * @param[in] :- pin number of the port
+ *
+ * @note :-      None
+ */
 void GPIO_toggle_pin(GPIO_regdef_t *pGPIOtogglehandle ,uint8_t pinnumber);
+/*
+ * @brief :- 	 GPIO config function
+ *
+ * @param[in] :- port of the select pin
+ * @param[in] :- mode of the select pin
+ * @param[in] :- pinnumber if not pass -1
+ * @param[in] :- output type mode config - if the output mode is there select the output type mode else pass -1
+ * @param[in] :- select the speed of the pin if the port is output type else pass -1
+ * @note :-      None
+ *
+ * return :- 	address of the peripheral port
+ */
+
+GPIO_regdef_t *gpio_config(GPIO_regdef_t *port , uint8_t mode , uint8_t pinnumber, uint8_t output_mode_type , uint8_t pullup ,uint8_t speed);
 
 // Interrupt IRQ No. & Handling
 void GPIO_IRQ_Config(uint8_t IRQNumber, uint8_t IRQPriority , gpio_enum update);

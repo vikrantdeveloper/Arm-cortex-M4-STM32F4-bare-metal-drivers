@@ -85,3 +85,5 @@ extern RCC_regdef_t *pRCC;
 #define GPIOG_RST()		 do{(pRCC->AHB1RSTR |= (1<<6));(pRCC->AHB1RSTR &= ~(1<<6));}while(0)   //  reset the GPIOG  peripheral bits
 #define GPIOH_RST()		 do{(pRCC->AHB1RSTR |= (1<<6));(pRCC->AHB1RSTR &= ~(1<<6));}while(0)   //  reset the GPIOH  peripheral bits
 #endif /* INC_LL_RCC_H_ */
+
+void delay(unsigned long int sec_delay);

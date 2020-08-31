@@ -8,3 +8,10 @@
 #include "LL_rcc.h"
 
 RCC_regdef_t *pRCC = (RCC_regdef_t *)RCC_ADDR;
+
+
+void delay(unsigned long int sec_delay)
+{
+	sec_delay = sec_delay * 10000;
+	for(uint32_t i = 0; i< sec_delay; i++);
+}

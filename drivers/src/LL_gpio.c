@@ -174,7 +174,7 @@ uint16_t GPIO_read_input_port(GPIO_regdef_t *pGPIOhandle)
 void GPIO_toggle_pin(GPIO_regdef_t *pGPIOtogglehandle ,uint8_t pinnumber)
 {
 	uint8_t readpinvalue = (uint8_t)((pGPIOtogglehandle->IDR >> pinnumber) & 0x01);
-	uint8_t togglepin = pinnumber << 1;
+	uint8_t togglepin = 1 << pinnumber;
 	if(readpinvalue == 1)
 		pGPIOtogglehandle->ODR &= ~togglepin;
 	else
@@ -183,18 +183,34 @@ void GPIO_toggle_pin(GPIO_regdef_t *pGPIOtogglehandle ,uint8_t pinnumber)
 }
 void GPIO_write_output_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber , gpio_write_pin value)
 {
+	uint8_t writepin = 1 << pinnumber;
 	if(value == GPIO_PIN_SET)
 	{
-		uint8_t writepin = pinnumber << 1;
 		pGPIOhandle->ODR |= writepin;
 	}
-	else if(value == GPIO_PIN_SET)
+	else if(value == GPIO_PIN_RESET)
 	{
-		uint8_t writepin = pinnumber << 1;
 		pGPIOhandle->ODR &= ~writepin;
 	}
 }
 void GPIO_write_output_port(GPIO_regdef_t *pGPIOhandle, uint16_t portvalue)
 {
 	pGPIOhandle->ODR = portvalue;
+}
+GPIO_regdef_t *gpio_config(GPIO_regdef_t *port , uint8_t mode , uint8_t pinnumber, uint8_t output_mode_type , uint8_t pullup ,uint8_t speed)
+{
+
+	GPIO_handle_t GPIO_handle;
+	GPIO_handle.pGPIOaddrx = port;
+	GPIO_handle.GPIOpinconfig.GPIO_mode = mode;
+	GPIO_handle.GPIOpinconfig.GPIO_pinnumber = pinnumber;
+	GPIO_handle.GPIOpinconfig.GPIO_pinpupdcontrol = pullup;
+	if(GPIO_handle.GPIOpinconfig.GPIO_mode == GPIO_MODE_OP && output_mode_type != -1)
+	{
+		GPIO_handle.GPIOpinconfig.GPIO_pinspeed =  speed;
+		GPIO_handle.GPIOpinconfig.GPIO_pinoptype = output_mode_type;
+	}
+	GPIO_init(&GPIO_handle);
+	return port;
+
 }

@@ -5,4 +5,5 @@ LL_gpio.c:163:9:GPIO_read_input_pin	24	static
 LL_gpio.c:169:10:GPIO_read_input_port	24	static
 LL_gpio.c:174:6:GPIO_toggle_pin	24	static
 LL_gpio.c:184:6:GPIO_write_output_pin	24	static
-LL_gpio.c:197:6:GPIO_write_output_port	16	static
+LL_gpio.c:196:6:GPIO_write_output_port	16	static
+LL_gpio.c:200:16:gpio_config	32	static
