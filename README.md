@@ -1,3 +1,3 @@
-# STM32-drivers
+# Arm Cortex M4 STM32F4 driver development
 
-This is the open-source bare metal driver for STM32 GPIO peripherals
+Bare metal driver development for NUCLEO-F44RE STM32F4xx MCU's
