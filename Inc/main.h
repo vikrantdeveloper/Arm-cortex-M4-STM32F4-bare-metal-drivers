@@ -2,7 +2,8 @@
  * main.h
  *
  *  Created on: 30-Aug-2020
- *      Author: vikrant
+ *  Author: Vikrant Thakur(vikrantthakur97@gmail.com)
+ *  Copyright (c) 2020
  */
 
 #ifndef MAIN_H_

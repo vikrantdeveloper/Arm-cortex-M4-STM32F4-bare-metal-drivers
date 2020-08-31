@@ -1,8 +1,9 @@
-/*  MIT License
+/*
+ * MIT License
  * 	stm32f4xx.h
  *  Created on : 17-Aug-2020
  *  Author:  Vikrant thakur
- *  @open source RCC driver
+ *  Copyright (c) 2020
  */
 #include "stm32f4xx.h"
 #include "LL_rcc.h"

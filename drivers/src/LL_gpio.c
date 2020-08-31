@@ -1,7 +1,9 @@
-/* 	MIT License
+/*
+ *  MIT License
  * 	LL_gpio.c
  *  Created on: 18 Aug 2020
  *  Author: Vikrant Thakur(vikrantthakur97@gmail.com)
+ *  Copyright (c) 2020
  */
 #include "stm32f4xx.h"
 #include "LL_rcc.h"

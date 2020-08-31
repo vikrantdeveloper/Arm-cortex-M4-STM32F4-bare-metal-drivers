@@ -1,7 +1,9 @@
-/* 	MIT License
+/*
+ *  MIT License
  * 	LL_gpio.h
  *  Created on: 18 Aug 2020
  *  Author: Vikrant Thakur(vikrantthakur97@gmail.com)
+ *  Copyright (c) 2020
  */
 
 #ifndef INC_LL_GPIO_H_
