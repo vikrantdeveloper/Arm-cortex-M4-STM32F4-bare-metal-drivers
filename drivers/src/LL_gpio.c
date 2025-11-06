@@ -9,7 +9,7 @@
 #include "LL_rcc.h"
 #include "LL_gpio.h"
 
-void GPIO_init(GPIO_handle_t *pGPIOx)
+void GPIO_Init(GPIO_handle_t *pGPIOx)
 {
 	// configure the mode
 	uint32_t regtemp = 0;
@@ -69,6 +69,19 @@ void GPIO_init(GPIO_handle_t *pGPIOx)
 		case GPIO_MODE_ANG:
 			// need to write
 			break;
+
+		// handle interrupt cases
+		case GPIO_MODE_IT_FT:
+
+		
+
+
+		case GPIO_MODE_IT_RT:
+
+
+		case GPIO_MODE_IT_RFT:
+
+	    
 	}
 	// configure the speed
 	uint8_t speed = pGPIOx->GPIOpinconfig.GPIO_pinspeed;
@@ -102,7 +115,7 @@ void GPIO_init(GPIO_handle_t *pGPIOx)
 	pGPIOx->pGPIOaddrx->PUPDR |= regtemp;
 	regtemp = 0;
 }
-void GPIO_clock_control(GPIO_regdef_t *pGPIOx, gpio_enum status)
+void GPIO_ClockControl(GPIO_regdef_t *pGPIOx, gpio_enum status)
 {
 	if(status == CLK_SET)
 	{
@@ -144,7 +157,7 @@ void GPIO_clock_control(GPIO_regdef_t *pGPIOx, gpio_enum status)
 			GPIOH_PCLK_DI();
 	}
 }
-void GPIO_deinit(GPIO_regdef_t *pGPIOx)
+void GPIO_DeInit(GPIO_regdef_t *pGPIOx)
 {
 	if(pGPIOx == GPIOA_ADDR)
 		GPIOA_RST();
@@ -163,18 +176,18 @@ void GPIO_deinit(GPIO_regdef_t *pGPIOx)
 	if(pGPIOx == GPIOH_ADDR)
 		GPIOH_RST();
 }
-uint8_t GPIO_read_input_pin(GPIO_regdef_t *pGPIOreadhandle ,uint8_t pinnumber)
+uint8_t GPIO_ReadInputPin(GPIO_regdef_t *pGPIOreadhandle ,uint8_t pinnumber)
 {
 	    /*right shift the pin value to 0 pin location and then & with 0x01 to obtain 1 or 0*/
 		uint8_t pinvalue = (uint8_t)((pGPIOreadhandle->IDR >> pinnumber) & 0x01);
 		return pinvalue;
 }
-uint16_t GPIO_read_input_port(GPIO_regdef_t *pGPIOhandle)
+uint16_t GPIO_ReadInputPort(GPIO_regdef_t *pGPIOhandle)
 {
 	uint16_t readport = (uint16_t)(pGPIOhandle->IDR);
 	return readport;
 }
-void GPIO_toggle_pin(GPIO_regdef_t *pGPIOtogglehandle ,uint8_t pinnumber)
+void GPIO_TogglePin(GPIO_regdef_t *pGPIOtogglehandle ,uint8_t pinnumber)
 {
 	uint8_t readpinvalue = (uint8_t)((pGPIOtogglehandle->IDR >> pinnumber) & 0x01);
 	uint8_t togglepin = 1 << pinnumber;
@@ -184,7 +197,7 @@ void GPIO_toggle_pin(GPIO_regdef_t *pGPIOtogglehandle ,uint8_t pinnumber)
 		pGPIOtogglehandle->ODR |= togglepin;
 
 }
-void GPIO_write_output_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber , gpio_write_pin value)
+void GPIO_WriteOutputPin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber , gpio_write_pin value)
 {
 	uint8_t writepin = 1 << pinnumber;
 	if(value == GPIO_PIN_SET)
@@ -196,7 +209,7 @@ void GPIO_write_output_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber , gpio_
 		pGPIOhandle->ODR &= ~writepin;
 	}
 }
-void GPIO_write_output_port(GPIO_regdef_t *pGPIOhandle, uint16_t portvalue)
+void GPIO_WriteOutputPort(GPIO_regdef_t *pGPIOhandle, uint16_t portvalue)
 {
 	pGPIOhandle->ODR = portvalue;
 }

@@ -163,7 +163,7 @@ typedef enum{
  *
  * @note :- clear the bits before set them
  */
-void GPIO_init(GPIO_handle_t *pGPIOx);
+void GPIO_Init(GPIO_handle_t *pGPIOx);
 /*
  * @brief :- 	GPIO deinitialisation
  *
@@ -171,7 +171,7 @@ void GPIO_init(GPIO_handle_t *pGPIOx);
  *
  * @note :- reset the value in GPIO RTS
  */
-void GPIO_deinit(GPIO_regdef_t *pGPIOx);
+void GPIO_DeInit(GPIO_regdef_t *pGPIOx);
 /*
  * @Brief :- 	 Initialise the clock for given GPIO peripheral
  *
@@ -180,7 +180,7 @@ void GPIO_deinit(GPIO_regdef_t *pGPIOx);
  *
  * @note :- None
  */
-void GPIO_clock_control(GPIO_regdef_t *pGPIOx, gpio_enum status);
+void GPIO_ClockControl(GPIO_regdef_t *pGPIOx, gpio_enum status);
 /*
  * @brief :- 	 read the pin for given GPIO peripheral pin
  *
@@ -189,7 +189,7 @@ void GPIO_clock_control(GPIO_regdef_t *pGPIOx, gpio_enum status);
  *
  * @note :-      right shift the pin value to 0 pin location and then & with 0x01 to obtain 1 or 0 read logic
  */
-uint8_t GPIO_read_input_pin(GPIO_regdef_t *pGPIOreadhandle ,uint8_t pinnumber);
+uint8_t GPIO_ReadInputPin(GPIO_regdef_t *pGPIOreadhandle ,uint8_t pinnumber);
 /*
  * @brief :- 	 read the port for given GPIO peripheral
  *
@@ -197,7 +197,7 @@ uint8_t GPIO_read_input_pin(GPIO_regdef_t *pGPIOreadhandle ,uint8_t pinnumber);
  *
  * @note :-      None
  */
-uint16_t GPIO_read_input_port(GPIO_regdef_t *pGPIOreadhandle);
+uint16_t GPIO_ReadInputPort(GPIO_regdef_t *pGPIOreadhandle);
 /*
  * @brief :- 	 write the pin value for given GPIO peripheral pin
  *
@@ -207,7 +207,7 @@ uint16_t GPIO_read_input_port(GPIO_regdef_t *pGPIOreadhandle);
  *
  * @note :-      None
  */
-void GPIO_write_output_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber , gpio_write_pin value);
+void GPIO_WriteOutputPin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber , gpio_write_pin value);
 /*
  * @brief :- 	 write the port for given GPIO peripheral
  *
@@ -216,7 +216,7 @@ void GPIO_write_output_pin(GPIO_regdef_t *pGPIOhandle ,uint8_t pinnumber , gpio_
  *
  * @note :-      None
  */
-void GPIO_write_output_port(GPIO_regdef_t *pGPIOhandle, uint16_t portvalue);
+void GPIO_WriteOutputPort(GPIO_regdef_t *pGPIOhandle, uint16_t portvalue);
 /*
  * @brief :- 	 toggle the pin for given GPIO peripheral
  *
@@ -225,11 +225,11 @@ void GPIO_write_output_port(GPIO_regdef_t *pGPIOhandle, uint16_t portvalue);
  *
  * @note :-      None
  */
-void GPIO_toggle_pin(GPIO_regdef_t *pGPIOtogglehandle ,uint8_t pinnumber);
+void GPIO_TogglePin(GPIO_regdef_t *pGPIOtogglehandle ,uint8_t pinnumber);
 
 
 // Interrupt IRQ No. & Handling
-void GPIO_IRQ_Config(uint8_t IRQNumber, uint8_t IRQPriority , gpio_enum update);
-void GPIO_IRQ_Handling(uint8_t pinnumber);
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t IRQPriority , gpio_enum update);
+void GPIO_IRQHandling(uint8_t pinnumber);
 
 #endif /* INC_LL_GPIO_H_ */

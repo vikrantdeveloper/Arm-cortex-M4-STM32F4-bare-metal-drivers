@@ -1,0 +1,37 @@
+{
+    "version" : "0.2.0",
+    "projectName" : "armm4_drivers",
+    "configurations": [
+    {
+        "name": "stm32debug_F446RE",
+        "cwd": "${workspaceFolder}",
+        "type": "cortex-debug",
+        "request": "launch",
+        "interface": "swd",
+        "preLaunchTask": "Build all",
+        // --- MODIFICATION 1: Update Device Name ---
+        "device": "STM32F446RE", 
+        "servertype": "stutil",
+        "executable": "${workspaceFolder}/build/Drivers.elf",
+       "swoConfig": {
+        "enabled": true,
+        // --- MODIFICATION 2: Update CPU Frequency ---
+        // The STM32F446RE runs at a maximum of 180 MHz. 
+        // Use the actual clock speed set in your firmware (e.g., 180MHz is 180000000).
+        "cpuFrequency": 16000000, 
+        "swoFrequency": 4000000,
+        "source":"probe",
+        "decoders": [
+            {
+                "label": "ITM port 0 output",
+                "type": "console",
+                "port": 0,
+                "showOnStartup": true,
+                "encoding": "ascii"
+            }
+        ]
+       }
+
+    }
+    ]
+}

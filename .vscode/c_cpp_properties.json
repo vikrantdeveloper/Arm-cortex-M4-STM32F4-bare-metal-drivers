@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "name": "STM32F446xx | macOS",
+            // The IntelliSense engine needs to know this is an ARM/GCC project.
+            "intelliSenseMode": "gcc-arm",
+
+            // 1. Compiler Path (Crucial for IntelliSense)
+            // Use the absolute path to the arm-none-eabi-gcc installed via Homebrew.
+            // Adjust the path prefix (/opt/homebrew/bin vs /usr/local/bin) if needed.
+            "compilerPath": "/opt/homebrew/bin/arm-none-eabi-gcc",
+
+            // 2. Include Paths (From your Makefile's C_INCLUDES)
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+
+            // 3. Defines (From your Makefile's C_DEFS)
+            "defines": [
+                "USE_HAL_DRIVER",
+                "STM32F446xx"
+            ],
+
+            // 4. Standard settings
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "forcedInclude": [],
+            "compileCommands": "",
+
+            // 5. Architecture settings
+            "compilerArgs": [
+                "-mcpu=cortex-m4",
+                "-mthumb",
+                "-mfpu=fpv4-sp-d16",
+                "-mfloat-abi=hard"
+            ]
+        }
+    ],
+    "version": 4
+}

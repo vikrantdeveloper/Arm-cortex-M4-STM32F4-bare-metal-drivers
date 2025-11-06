@@ -27,11 +27,11 @@
 
 int main(void)
 {
-	GPIO_clock_control(GPIOA_ADDR, CLK_SET);
-	GPIO_regdef_t *port = gpio_config(GPIOA_ADDR, GPIO_MODE_OP , GPIO_PIN_5, GPIO_OP_PP, GPIO_NO_PULLUPDOWN ,GPIO_MED_SPEED);
+	GPIO_ClockControl(GPIOA_ADDR, CLK_SET);
+	GPIO_regdef_t *port = GPIO_Config(GPIOA_ADDR, GPIO_MODE_OP , GPIO_PIN_5, GPIO_OP_PP, GPIO_NO_PULLUPDOWN ,GPIO_MED_SPEED);
 	while(1)
 	{
-		GPIO_toggle_pin(port, GPIO_PIN_5);
+		GPIO_TogglePin(port, GPIO_PIN_5);
 		delay(50);
 	}
 }

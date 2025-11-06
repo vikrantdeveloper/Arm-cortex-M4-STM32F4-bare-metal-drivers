@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "main.h": "c",
+        "stdio.h": "c"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/Users/vikrantthakur/Documents/Development/MCU/stm32_dev/armm4_drivers/Drivers/build",
+            "binaryPath": "/Users/vikrantthakur/Documents/Development/MCU/stm32_dev/armm4_drivers/Drivers/build/Drivers.elf",
+            "binaryArgs": []
+        }
+    ],
+    "cortex-debug.gdbPath" :"/opt/homebrew/bin/arm-none-eabi-gdb",
+    "cortex-debug.stutilPath": "/opt/homebrew/bin/st-util",
+}

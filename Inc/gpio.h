@@ -23,7 +23,7 @@
  * return :- 	address of the peripheral port
  */
 
-GPIO_regdef_t *gpio_config(GPIO_regdef_t *port , uint8_t mode , uint8_t pinnumber, uint8_t output_mode_type , uint8_t pullup ,uint8_t speed);
+GPIO_regdef_t *GPIO_Config(GPIO_regdef_t *port , uint8_t mode , uint8_t pinnumber, uint8_t output_mode_type , uint8_t pullup ,uint8_t speed);
 
 
 #endif /* AP_GPIO_H_ */

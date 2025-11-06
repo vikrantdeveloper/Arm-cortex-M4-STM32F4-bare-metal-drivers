@@ -1,8 +1,8 @@
-#include "AP_gpio.h"
+#include "gpio.h"
 #include  "main.h"
 
 
-GPIO_regdef_t *gpio_config(GPIO_regdef_t *port , uint8_t mode , uint8_t pinnumber, uint8_t output_mode_type , uint8_t pullup ,uint8_t speed)
+GPIO_regdef_t *GPIO_Config(GPIO_regdef_t *port , uint8_t mode , uint8_t pinnumber, uint8_t output_mode_type , uint8_t pullup ,uint8_t speed)
 {
 
 	GPIO_handle_t GPIO_handle;
@@ -15,6 +15,6 @@ GPIO_regdef_t *gpio_config(GPIO_regdef_t *port , uint8_t mode , uint8_t pinnumbe
 		GPIO_handle.GPIOpinconfig.GPIO_pinspeed =  speed;
 		GPIO_handle.GPIOpinconfig.GPIO_pinoptype = output_mode_type;
 	}
-	GPIO_init(&GPIO_handle);
+	GPIO_Init(&GPIO_handle);
 	return port;
 }

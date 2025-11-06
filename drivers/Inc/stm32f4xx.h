@@ -64,4 +64,9 @@ typedef enum
 
 #define LL_GPIOH_BASE_ADDR									      (AHB1PERIPH_BASE_ADDR +   0x1C00)
 
+
+/*base address of the EXT peripheral
+*s
+*/
+
 #endif /* INC_STM32F4XX_H_ */
